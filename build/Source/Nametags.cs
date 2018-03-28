@@ -19,6 +19,10 @@ namespace Nametags
 			if( layer != Layer.Foreground )
 				return;
 
+			//level is not ready let, so it may not be safe to get anything from it yet in multiplayer
+			if( (Network.isActive && __instance.networkStatus != NetLevelStatus.Ready ) || !__instance.initialized )
+				return;
+
 			GameMode gm = (GameMode) _gameMode.GetValue( __instance );
 
 			int waitAfterDings = (int) _waitDings.GetValue( gm );
