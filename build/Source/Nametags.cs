@@ -14,7 +14,7 @@ namespace Nametags
 		static FieldInfo _gameMode = typeof( GameLevel ).GetField( "_mode" , BindingFlags.NonPublic | BindingFlags.Instance );
 		static FieldInfo _waitDings = typeof( GameMode ).GetField( "_waitAfterSpawnDings" , BindingFlags.NonPublic | BindingFlags.Instance );
 
-		private static void Postfix( DeathmatchLevel __instance , Layer layer )
+		private static void Postfix( GameLevel __instance , Layer layer )
 		{
 			if( layer != Layer.Foreground )
 				return;
