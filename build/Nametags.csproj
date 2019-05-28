@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
@@ -10,13 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="ILRepack" Version="2.0.15" />
+    <PackageReference Include="Lib.Harmony" Version="1.2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>ThirdParty\0Harmony.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
     <Reference Include="DuckGame">
       <HintPath>ThirdParty\DuckGame.exe</HintPath>
       <Private>false</Private>

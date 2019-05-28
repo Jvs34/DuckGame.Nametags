@@ -6,10 +6,8 @@ using DuckGame;
 
 namespace Nametags
 {
-	[HarmonyPatch( typeof( GameLevel ) )]
-	[HarmonyPatch( nameof( GameLevel.PostDrawLayer ) )]
-	[HarmonyPatch( new [] { typeof( Layer ) } )]
-	class GameLevel_PostDrawLayer
+	[HarmonyPatch( typeof( GameLevel ) , nameof( GameLevel.PostDrawLayer ) )]
+	internal static class GameLevel_PostDrawLayer
 	{
 		static FieldInfo _gameMode = typeof( GameLevel ).GetField( "_mode" , BindingFlags.NonPublic | BindingFlags.Instance );
 		static FieldInfo _waitDings = typeof( GameMode ).GetField( "_waitAfterSpawnDings" , BindingFlags.NonPublic | BindingFlags.Instance );
