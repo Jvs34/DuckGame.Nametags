@@ -1,4 +1,4 @@
-# DuckGame.NameTags
+# DuckGame.Nametags
 
 Shows nametags above players before a round starts.
 
