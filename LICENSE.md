@@ -4,7 +4,7 @@ https://github.com/Jvs34/DuckGame.Nametags
 ```
 MIT License
 
-Copyright (c) 2018 Alessio Malato & William Wallace
+Copyright (c) 2023 Alessio Malato & Sophie Wallace
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

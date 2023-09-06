@@ -1,17 +1,24 @@
 ﻿using System.Reflection;
-using Harmony;
+using HarmonyLib;
 
 namespace Nametags
 {
-	public class Mod : DuckGame.Mod
+	public class NameTagsMod : DuckGame.ClientMod
 	{
+		private Harmony HarmonyInstance { get; }
+
+		public NameTagsMod()
+		{
+			HarmonyInstance = new Harmony( GetType().Namespace );
+		}
+
 		protected override void OnPreInitialize()
 		{
 #if false
 			System.Diagnostics.Debugger.Launch();
 #endif
 
-			HarmonyInstance.Create( "Nametags" ).PatchAll( Assembly.GetExecutingAssembly() );
+			HarmonyInstance.PatchAll( Assembly.GetExecutingAssembly() );
 		}
 	}
 }

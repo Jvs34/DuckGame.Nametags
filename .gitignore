@@ -5,4 +5,6 @@
 /build/bin
 /build/obj
 /build/ThirdParty/DuckGame.exe
+/build/ThirdParty/DuckGame.pdb
+/build/ThirdParty/DuckGame.XML
 build/build_compiled.hash

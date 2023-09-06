@@ -1,27 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net471</TargetFramework>
-    <Platforms>x86</Platforms>
-    <DebugType>full</DebugType>
-    <Company>Jvs &amp; Willox</Company>
-    <Version>1.0.0.1</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net452</TargetFramework>
+		<Platforms>x86</Platforms>
+		<DebugType>full</DebugType>
+		<Company>Jvs &amp; Willox</Company>
+		<Version>2.0.0.0</Version>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ILRepack" Version="2.0.15" />
-    <PackageReference Include="Lib.Harmony" Version="1.2.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ILRepack" Version="2.0.18" />
+		<PackageReference Include="Lib.Harmony" Version="2.2.2" />
+		<Reference Include="DuckGame">
+			<HintPath>ThirdParty\DuckGame.exe</HintPath>
+			<Private>false</Private>
+		</Reference>
 
-  <ItemGroup>
-    <Reference Include="DuckGame">
-      <HintPath>ThirdParty\DuckGame.exe</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+		<ModContent Include="..\**\*.*" Exclude="..\build\**\*.*;..\.git\**\*.*;..\.gitignore;..\*.md" />
+	</ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="$(ILRepack) /out:$(ProjectDir)\..\Nametags.dll $(OutDir)\Nametags.dll $(OutDir)\0Harmony.dll" />
-  </Target>
+	<Target Name="RepackDlls" AfterTargets="PostBuildEvent">
+		<Exec Command="$(ILRepack) /out:$(ProjectDir)\..\$(ProjectName).dll $(OutDir)\$(ProjectName).dll $(OutDir)\0Harmony.dll" />
+	</Target>
+
+	<Target Name="CopyToModsFolder" AfterTargets="RepackDlls">
+		<Copy SourceFiles="@(ModContent)" DestinationFolder="$(AppData)\DuckGame\Mods\$(ProjectName)\%(RecursiveDir)" />
+	</Target>
 
 </Project>
