@@ -53,7 +53,7 @@ namespace Nametags
 
 			font.scale = Vec2.One;
 			var fontPos = new Vec2( duck.position.x - font.GetWidth( name ) / 2.0f, duck.top - 16.0f );
-			profile.font.DrawOutline( name, fontPos, profile.persona.colorUsable, Color.Black, 1.0f );
+			profile.font.DrawOutline( name, fontPos, profile.persona.colorUsable, Color.Black, 2.0f );
 		}
 	}
 
